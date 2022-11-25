@@ -35,6 +35,8 @@ dependencies {
 	implementation("io.springfox:springfox-boot-starter:3.0.0");
 	implementation("io.springfox:springfox-swagger-ui:3.0.0");
 
+	// feign client
+	implementation("org.springframework.cloud:spring-cloud-starter-openfeign:3.1.5")
 
 }
 
