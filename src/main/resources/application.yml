@@ -3,7 +3,10 @@ spring:
     pathmatch:
       matching-strategy: ant_path_matcher
 
-
+kogpt-api:
+  rest-api-key: "KakaoAK 28ef4fa8a9299502c26e28a0aeddf346"
+  host: "https://api.kakaobrain.com"
+  endpoint: "/v1/inference/kogpt/generation"
 
 logging:
   level:

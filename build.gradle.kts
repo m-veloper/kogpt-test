@@ -38,6 +38,9 @@ dependencies {
 	// feign client
 	implementation("org.springframework.cloud:spring-cloud-starter-openfeign:3.1.5")
 
+	// validation
+	implementation("org.springframework.boot:spring-boot-starter-validation")
+
 }
 
 tasks.withType<Test> {
