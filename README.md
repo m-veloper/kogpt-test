@@ -1,5 +1,11 @@
 # KoGPT API 데모
-카카오 KoGPT 테스트
+카카오 KoGPT 테스트  
+
+## 테스트 방법
+
+1. 카카오 디벨로퍼에 앱 생성 후 REST API 키를 발급받아 테스트 하세요.
+2. https://developers.kakao.com
+
 
 ## Swagger UI 테스트
 
@@ -51,7 +57,7 @@ ___
     "n": 1,
     "temperature":1.0,
     "top_p":1.0
-}       
+}       ㅋ
 ```
 
 ### KoGPT ERROR CODE
