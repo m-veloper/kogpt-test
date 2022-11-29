@@ -20,8 +20,8 @@ public class Swagger {
 
     private ApiInfo swaggerInfo() {
         return new ApiInfoBuilder()
-                .title("KoGPT TEST API")
-                .description("KoGPT API Docs")
+                .title("KoGPT API")
+                .description("KoGPT 테스트 Swagger")
                 .build();
     }
 

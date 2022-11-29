@@ -2,7 +2,7 @@ package com.kogpt.demo.service;
 
 import com.kogpt.demo.common.ApiRestTemplateComponent;
 import com.kogpt.demo.common.ObjectMapperUtil;
-import com.kogpt.demo.model.BaseDto;
+import com.kogpt.demo.model.Header;
 import com.kogpt.demo.model.request.KoGptApiRequestDto;
 import com.kogpt.demo.model.response.KoGptApiResponseDto;
 import lombok.RequiredArgsConstructor;
@@ -23,16 +23,15 @@ public class KoGptServiceImpl implements KoGptService {
     private String host;
     @Value("${kogpt-api.endpoint}")
     private String endPoint;
-    @Value("${kogpt-api.rest-api-key}")
-    private String key;
+
     private final ApiRestTemplateComponent apiRestTemplateComponent;
 
     @Override
-    public KoGptApiResponseDto requestKoGpt(KoGptApiRequestDto koGptApiRequestDto) {
+    public Header requestKoGpt(KoGptApiRequestDto koGptApiRequestDto, String restApiKey) {
 
         String url = host+endPoint;
 
-        HttpHeaders headers = this.getHttpHeaders();
+        HttpHeaders headers = this.getHttpHeaders(restApiKey);
         String jsonParam = ObjectMapperUtil.writeValueAsString(koGptApiRequestDto);
         HttpEntity<String> httpEntity = new HttpEntity<>(jsonParam, headers);
 
@@ -41,19 +40,22 @@ public class KoGptServiceImpl implements KoGptService {
             ResponseEntity<String> responseEntity = responseEntityFuture.get();
 
             KoGptApiResponseDto baseDto = ObjectMapperUtil.koGptReadValue(responseEntity.getBody(), KoGptApiResponseDto.class);
-            return baseDto;
+            return Header.OK(baseDto);
         }
         catch (Exception e) {
-            return null;
+            return Header.ERROR(e.getMessage());
         }
     }
 
+
+
     @Override
-    public HttpHeaders getHttpHeaders() {
+    public HttpHeaders getHttpHeaders(String restApiKey) {
+
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         try {
-            headers.set("Authorization", key);
+            headers.set("Authorization", "KakaoAK "+restApiKey);
         }
         catch (Exception e) {
             e.printStackTrace();

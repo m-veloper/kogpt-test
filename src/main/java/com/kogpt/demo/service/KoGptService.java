@@ -9,12 +9,18 @@ public interface KoGptService {
 
     /**
      * KoGPY API 요청
-     *
      * @param koGptApiRequestDto
      * @return
      */
-    Object requestKoGpt(@NotNull KoGptApiRequestDto koGptApiRequestDto);
+    Object requestKoGpt(KoGptApiRequestDto koGptApiRequestDto, String restApiKey);
 
-    HttpHeaders getHttpHeaders();
+
+    /**
+     * KoGPY API Header
+     * @param restApiKey
+     * @return
+     */
+    HttpHeaders getHttpHeaders(String restApiKey);
+
 }
 

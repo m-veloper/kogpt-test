@@ -9,8 +9,6 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 @Data
-//@NoArgsConstructor
-//@AllArgsConstructor
 public class KoGptApiResponseDto {
 
     private String id;
@@ -18,16 +16,12 @@ public class KoGptApiResponseDto {
     private Usage usage;
 
     @Data
-//    @NoArgsConstructor
-//    @AllArgsConstructor
     static class Generation{
         private String text;                // KoGPT가 생성한 결과
         private Integer tokens;             // 결과 토큰 수
     }
 
     @Data
-//    @NoArgsConstructor
-//    @AllArgsConstructor
     static class Usage{
         @JsonProperty("prompt_tokens")
         private Integer promptTokens;       // KoGPT에게 전달된 프롬프트의 토큰 수

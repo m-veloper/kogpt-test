@@ -58,19 +58,6 @@ public class ObjectMapperUtil<T> {
      * @param <T>
      * @throws IOException
      */
-    public static <T> BaseDto<T> clovaReadValue(@NotNull String json, Class<T> t) throws IOException {
-        JavaType javaType = objectMapper.getTypeFactory().constructParametricType(BaseDto.class, t);
-        return objectMapper.readValue(json, javaType);
-    }
-
-    /**
-     *
-     * @param json
-     * @param t
-     * @return
-     * @param <T>
-     * @throws IOException
-     */
     public static <T> T koGptReadValue(@NotNull String json, Class<T> t) throws IOException {
         T target = objectMapper.readValue(json, t);;
         return target;
