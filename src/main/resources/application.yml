@@ -4,7 +4,6 @@ spring:
       matching-strategy: ant_path_matcher
 
 kogpt-api:
-#  rest-api-key: "KakaoAK cc70005c5552eeb46423b5635611c336"
   host: "https://api.kakaobrain.com"
   endpoint: "/v1/inference/kogpt/generation"
 

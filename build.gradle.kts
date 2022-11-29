@@ -28,19 +28,14 @@ dependencies {
 	annotationProcessor("org.projectlombok:lombok")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 
-
 	/* 추가 영역 */
 
 	// 스웨거 3.0
 	implementation("io.springfox:springfox-boot-starter:3.0.0");
 	implementation("io.springfox:springfox-swagger-ui:3.0.0");
 
-	// feign client
-	implementation("org.springframework.cloud:spring-cloud-starter-openfeign:3.1.5")
-
 	// validation
 	implementation("org.springframework.boot:spring-boot-starter-validation")
-
 }
 
 tasks.withType<Test> {
